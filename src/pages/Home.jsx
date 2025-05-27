@@ -38,7 +38,7 @@ export default function Home() {
         <Card
           title="Ablation Study"
           color="from-indigo-500 to-violet-500"
-          onClick={() => navigate('/ablation')}
+          onClick={() => navigate('/benchmarks/ablation')}
         />
       </div>
 

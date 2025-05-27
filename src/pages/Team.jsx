@@ -103,7 +103,8 @@ export default function Team() {
         'toulon.png',
         'hebrew.png',
         'meta.png',
-        'udem.png'
+        'udem.png',
+        'ulaval.png',
       ].map((logo, idx) => (
         <img
           key={idx}
@@ -116,86 +117,6 @@ export default function Team() {
     </div>
   </div>
 </div>
-
-    // <div className="max-w-6xl mx-auto px-6 py-12 space-y-12">
-    //   <h2 className="text-4xl font-bold text-center text-primary mb-4">Meet the Team</h2>
-
-    //   {/* Core Contributors */}
-    //   <div>
-    //     <h3 className="text-2xl font-semibold text-left text-blue-700 mb-4">Core Contributors</h3>
-    //     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-    //       {coreContributors.map((member, index) => (
-    //         <div
-    //           key={index}
-    //           className="bg-white text-black border border-gray-200 shadow p-4 rounded-lg hover:shadow-md transition"
-    //         >
-    //           <a
-    //             href={member.website}
-    //             target="_blank"
-    //             rel="noopener noreferrer"
-    //             className="text-lg font-semibold text-blue-800 hover:underline"
-    //           >
-    //             {member.name}
-    //           </a>
-    //           <div className="text-sm text-gray-700">{member.affiliation}</div>
-    //         </div>
-    //       ))}
-    //     </div>
-    //   </div>
-
-    //   {/* Other Collaborators */}
-    //   <div>
-    //     <h3 className="text-2xl font-semibold text-left text-gray-800 mb-4">Collaborators</h3>
-    //     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-    //       {otherCollaborators.map((collab, index) => (
-    //         <div
-    //           key={index}
-    //           className="bg-white text-black border border-gray-200 shadow p-4 rounded-lg hover:shadow-md transition"
-    //         >
-    //           <a
-    //             href={collab.website}
-    //             target="_blank"
-    //             rel="noopener noreferrer"
-    //             className="text-lg font-semibold text-blue-800 hover:underline"
-    //           >
-    //             {collab.name}
-    //           </a>
-    //           <div className="text-sm text-gray-700">{collab.affiliation}</div>
-    //         </div>
-    //       ))}
-    //     </div>
-    //   </div>
-    //   {/* Logos */}
-    //   <div className="text-center pt-10">
-    //     <h3 className="text-xl font-semibold text-gray-800 mb-4">Affiliations</h3>
-    //     <div className="flex flex-wrap justify-center items-center gap-6">
-    //       {[
-    //         'mila.png',
-    //         'cambridge.png',
-    //         'cmu.png',
-    //         'ntu.png',
-    //         'uiuc.png',
-    //         'google.png',
-    //         'concordia.png',
-    //         'microsoft.png',
-    //         'apple.svg',
-    //         'toulon.png',
-    //         'hebrew.png',
-    //         'meta.png',
-    //         'udem.png'
-    //       ].map((logo, idx) => (
-    //         <img
-    //           key={idx}
-    //           src={`${import.meta.env.BASE_URL}logos/${logo}`}
-    //         //   src={`/logos/${logo}`}
-    //           alt={logo.replace('.png', '').replace('.svg', '')}
-    //           className="h-10"
-    //           onError={(e) => (e.target.style.display = 'none')}
-    //         />
-    //       ))}
-    //     </div>
-    //   </div>
-    // </div>
   );
 
 
