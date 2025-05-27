@@ -1,0 +1,68 @@
+[
+    {
+      "name": "AudioLM",
+      "architecture": "T",
+      "representation": "Time",
+      "algorithm": "RVQ",
+      "offline": "yes",
+      "bitrate": "Fixed",
+      "objective": ["GAN", "recon"],
+      "auxiliary": ["Semantic distillation"],
+      "joint": "yes",
+      "target_domain": ["speech", "audio"],
+      "streamability": "yes"
+    },
+    {
+      "name": "EnCodec",
+      "architecture": "CNN+RNN",
+      "representation": "Time-Freq",
+      "algorithm": "PQ",
+      "offline": "no",
+      "bitrate": "Adaptive",
+      "objective": ["recon"],
+      "auxiliary": [],
+      "joint": "no",
+      "target_domain": ["music"],
+      "streamability": "yes"
+    },
+    {
+      "name": "Wav2Vec2",
+      "architecture": "CNN+T",
+      "representation": "Time",
+      "algorithm": "FSQ",
+      "offline": "no",
+      "bitrate": "Fixed",
+      "objective": ["Feats", "VQ"],
+      "auxiliary": ["Supervised semantic"],
+      "joint": "yes",
+      "target_domain": ["speech"],
+      "streamability": "no"
+    },
+    {
+      "name": "HuBERT-VQVAE",
+      "architecture": "CNN",
+      "representation": "Time-Freq",
+      "algorithm": "GVQ",
+      "offline": "yes",
+      "bitrate": "Adaptive",
+      "objective": ["MP"],
+      "auxiliary": ["Disentanglement"],
+      "joint": "no",
+      "target_domain": ["audio"],
+      "streamability": "no"
+    },
+    {
+      "name": "SemanticTokenNet",
+      "architecture": "RNN",
+      "representation": "Time",
+      "algorithm": "SVQ",
+      "offline": "no",
+      "bitrate": "Fixed",
+      "objective": ["Diff", "VQ"],
+      "auxiliary": ["Supervised semantic", "Semantic distillation"],
+      "joint": "yes",
+      "target_domain": ["speech", "music"],
+      "streamability": "yes"
+    }
+  ]
+  
