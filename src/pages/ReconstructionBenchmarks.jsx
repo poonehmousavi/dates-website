@@ -701,7 +701,7 @@ export default function ReconstructionBenchmarks() {
             ⬅️ Back to Benchmark Overview
           </Link>
 
-          <div className="text-base text-gray-700 dark:text-gray-900 max-w-3xl mx-auto">
+          <div className="text-base text-white-700 dark:text-white-900 max-w-3xl mx-auto">
             <span className="text-xl mr-2">💡</span>
             Overall, these results underscore the importance of evaluating audio tokenizers beyond traditional waveform fidelity measures. Models optimized for perceptual or downstream tasks may exhibit low signal reconstruction performance, yet still produce subjectively high-quality audio reconstructions.          </div>
         </div>

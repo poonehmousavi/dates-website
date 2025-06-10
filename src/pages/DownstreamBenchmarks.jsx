@@ -693,8 +693,8 @@ export default function DownstreamBenchmarks() {
         >
           ⬅️ Back to Benchmark Overview
         </Link>
-
-        <div className="text-base text-gray-700 dark:text-gray-900 max-w-3xl mx-auto text-left">
+      
+        <div className="text-base text-white-700 dark:text-white-900 max-w-3xl mx-auto text-left">
   <span className="text-xl mr-2">💡</span>
   Semantic tokenizers are generally more robust, especially in low-resource settings, but still fall short of continuous representations when data is limited. Training downstream models with semantic or semantically-distilled tokenizers tends to be more stable and reliable compared to acoustic tokenizers, which often require larger datasets and more careful model scaling. Overall, discrete tokenizers are more sensitive to architectural choices and hyperparameters of the downstream head, whereas continuous features typically yield more consistent performance across configurations. Therefore,  careful tuning and appropriate scaling of both data and model architecture are crucial for effectively leveraging discrete representations. While discrete tokens offer advantages in efficiency and modularity, continuous representations still lead in overall performance. Bridging this gap is essential for the successful integration of audio tokens into future multimodal language models.</div>
 

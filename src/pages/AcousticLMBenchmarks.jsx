@@ -63,7 +63,7 @@ export default function AcousticLMBenchmarks() {
       </tbody>
     </table>
   
-            <div className="text-base text-gray-700 dark:text-gray-900 max-w-4xl mx-auto text-left bg-gray-50 p-4 rounded  mt-6">
+            <div className="text-base text-white-700 dark:text-white-900 max-w-4xl mx-auto text-left bg-white-50 p-4 rounded  mt-6">
               <span className="text-xl mr-2">💡</span>
               Our study reveals that semantic and acoustic performance in SLMs varies significantly across tokenizer types. HuBERT remains the strongest performer on semantic tasks, while WavLM leads in acoustic consistency. Semantically distilled tokenizers, particularly those with semantic stream overweighting, showed promising results by narrowing the semantic gap with HuBERT. These gains, however, come with trade-offs, emphasizing the importance of carefully balancing semantic and acoustic objectives. Overall, our findings suggest that, for now, there is no single tokenizer that excels across all spoken and acoustic tasks. </div>
           </div>
@@ -144,7 +144,7 @@ export default function AcousticLMBenchmarks() {
 </table>
 
 
-    <div className="text-base text-gray-700 dark:text-gray-900 max-w-4xl mx-auto text-left bg-gray-50 p-4 rounded mt-6">
+    <div className="text-base text-white-700 dark:text-white-900 max-w-4xl mx-auto text-left bg-white-50 p-4 rounded mt-6">
       <span className="text-xl mr-2">💡</span>
       Overall, achieving strong TTS performance with discrete tokenizers remains challenging, especially under constrained training conditions. Training with semantic tokenizers leads to more robust and effective TTS performance compared to acoustic or semantically distilled tokenizers; however, in high-data regimes with deep models, acoustic tokenizers, such as EnCodec, can be competitive with or even outperform semantic ones, particularly if they are trained on similar speech data, such as shown with Enc-S-24 trained on the same LibriTTS dataset as the TTS itself.   </div>
   </div>
@@ -197,7 +197,7 @@ export default function AcousticLMBenchmarks() {
       </tbody>
     </table>
 
-    <div className="text-base text-gray-700 dark:text-gray-900 max-w-4xl mx-auto text-left bg-gray-50 p-4 rounded mt-6">
+    <div className="text-base text-white-700 dark:text-white-900 max-w-4xl mx-auto text-left bg-white-50 p-4 rounded mt-6">
       <span className="text-xl mr-2">💡</span>
       Our findings highlight the critical role of domain-specific training for audio tokenizers. Training the language model alone on in-domain data is not sufficient: tokenizers must also be trained on the same domain to ensure strong performance. Our results also show that the best reconstruction performance does not correlate with the best modeling performance. In the future, we encourage the development of evaluation metrics that disentangle modeling ability from vocoder performance, as is common in the speech domain. We also emphasize the need for more robust modeling metrics.
     </div>
@@ -268,7 +268,7 @@ export default function AcousticLMBenchmarks() {
       </tbody>
     </table>
 
-    <div className="text-base text-gray-700 dark:text-gray-900 max-w-4xl mx-auto text-left bg-gray-50 p-4 rounded mt-6">
+    <div className="text-base text-white-700 dark:text-white-900 max-w-4xl mx-auto text-left bg-white-50 p-4 rounded mt-6">
       <span className="text-xl mr-2">💡</span>
       For music LM, we observe that tokenizers with higher sample rates and multi-codebook, associated with higher bitrates, tend to perform better. This contrasts with audio and speech generation, where higher bitrate tokenizers were harder to model. We hypothesize that music, with its complex harmonic and temporal structure, benefits more from detailed representations, whereas such granularity may be excessive or less critical for general audio tasks. Additionally, unconditional generation consistently outperforms text-conditioned generation, emphasizing the benefits of providing melody prompts in music generation tasks.
     </div>
