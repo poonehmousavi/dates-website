@@ -170,12 +170,12 @@ export default function Taxonomy() {
     rel="noopener noreferrer"
     className="inline-block bg-yellow-100 hover:bg-yellow-200 text-blue-700 font-semibold px-6 py-3 rounded-lg shadow-md transition"
   >
-    🔍 Explore the Interactive Taxonomy
+    🔍 Explore the Tokenizer Taxonomy Interactively
   </a>
 </div>
 
       {/* Collapsible filter section */}
-      <details className="border-2 border-primary rounded-xl shadow bg-white">
+      <details open className="border-2 border-primary rounded-xl shadow bg-white">
         <summary className="px-6 py-4 text-lg font-bold text-primary cursor-pointer select-none">
           <div className="text-center text-3xl font-extrabold text-primary">
             <span className="inline-block overflow-hidden whitespace-nowrap border-r-4 border-primary animate-typing">
