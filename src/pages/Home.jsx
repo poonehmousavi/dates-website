@@ -93,14 +93,11 @@ export default function Home() {
         <h1 className="text-4xl font-extrabold text-primary">
           Discrete Audio Tokens Empirical Study
         </h1>
-        <p className="text-light dark:text-black max-w-3xl mx-auto">
+        <p className="text-black dark:text-light max-w-3xl mx-auto">
   A unified survey and benchmark to explore reconstruction, downstream tasks,
   and language modeling with discrete audio tokens.
 </p>
 
-{/* <p className="text-center text-light dark:text-black max-w-3xl mx-auto">
-      We perform a joint evaluation across multiple dimensions considering a diverse set of publicly available, pre-trained tokenizers across speech, music, and general audio tasks.
-      </p> */}
 
 
 

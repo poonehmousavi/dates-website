@@ -15,19 +15,19 @@ export default function App() {
   useLayoutEffect(() => {
     document.documentElement.classList.remove('dark');
   }, []);
-  useEffect(() => {
+ useEffect(() => {
     if (darkMode) {
       document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
     } else {
       document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
     }
   }, [darkMode]);
-
   return (
     <BrowserRouter basename="/dates-website">
-      <div className="min-h-screen font-sans bg-background text-light dark:bg-white dark:text-black transition-colors duration-300">
+      {/* <div className="min-h-screen font-sans bg-background text-light dark:bg-white dark:text-black transition-colors duration-300">
+       */}
+       <div className="min-h-screen font-sans bg-white text-black dark:bg-background dark:text-light transition-colors duration-300">
+
         <header className="p-6 bg-gradient-to-r from-primary via-secondary to-accent shadow-xl">
           <div className="container mx-auto flex items-center justify-between">
             <div className="flex items-center gap-4">
@@ -57,7 +57,7 @@ export default function App() {
               className="flex items-center justify-center w-10 h-10 rounded-full border border-white dark:border-black bg-black/20 dark:bg-white/20 text-white dark:text-black hover:scale-110 transition-transform duration-300"
               title="Toggle Theme"
             >
-              <span className="text-xl">{darkMode ? '🌞' : '🌙'}</span>
+              <span className="text-xl">{darkMode ?  '🌙' : '🌞' }</span>
             </button>
           </div>
         </header>

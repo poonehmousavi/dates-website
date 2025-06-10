@@ -284,7 +284,7 @@ export default function Taxonomy() {
 
       {/* Submit Tokenizer CTA */}
       <div className="text-center mt-10">
-        <p className="text-gray-700 mb-2">Want to contribute your tokenizer?</p>
+        <p className="text-white-700 mb-2">Want to contribute your tokenizer?</p>
         <a
           href="https://docs.google.com/forms/d/e/1FAIpQLSevtcbtML_SdyreWZJUPlnnGMpycjHFLkYabeswnOlu-cI2AQ/viewform?usp=header"
           target="_blank"

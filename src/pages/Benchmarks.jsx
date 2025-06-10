@@ -7,7 +7,7 @@ export default function Benchmarks() {
     <div className="space-y-10">
       <h2 className="text-4xl font-bold text-primary text-center">Benchmark Overview</h2>
 
-      <p className="text-center text-light dark:text-black max-w-3xl mx-auto">
+      <p className="text-center text-black dark:text-light max-w-3xl mx-auto">
       We perform a joint evaluation across multiple dimensions considering a diverse set of publicly available, pre-trained tokenizers across speech, music, and general audio tasks.
       </p>
 
