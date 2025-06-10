@@ -65,7 +65,7 @@ export default function Team() {
 
   {/* Other Collaborators */}
   <div>
-    <h3 className="text-2xl font-semibold text-left text-gray-800 mb-4">Collaborators</h3>
+    <h3 className="text-2xl font-semibold text-left text-white-800 mb-4">Collaborators</h3>
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
       {otherCollaborators.map((collab, index) => (
         <div
@@ -88,7 +88,7 @@ export default function Team() {
 
   {/* Logos */}
   <div className="text-center pt-10">
-    <h3 className="text-xl font-semibold text-gray-800 mb-4">Affiliations</h3>
+    <h3 className="text-xl font-semibold text-white-800 mb-4">Affiliations</h3>
     <div className="flex flex-wrap justify-center items-center gap-6">
       {[
         'mila.png',
