@@ -155,6 +155,35 @@ export default function Home() {
           </button>
         </div>
       </div>
+      <div className="text-center pt-10">
+    {/* <h3 className="text-xl font-semibold text-white-800 mb-4">Affiliations</h3> */}
+    <div className="flex flex-wrap justify-center items-center gap-6">
+      {[
+        'mila.png',
+        'cambridge.png',
+        'cmu.png',
+        'ntu.png',
+        'uiuc.png',
+        'google.png',
+        'Indiana.png',
+        'concordia.png',
+        'microsoft.png',
+        'apple.svg',
+        'utln.png',
+        'hebrew.png',
+        'udem.png',
+        'ulaval.png',
+      ].map((logo, idx) => (
+        <img
+          key={idx}
+          src={`${import.meta.env.BASE_URL}logos/${logo}`}
+          alt={logo.replace(/\.(png|svg)/, '')}
+          className="h-10"
+          onError={(e) => (e.target.style.display = 'none')}
+        />
+      ))}
+    </div>
+  </div>
     </div>
   );
 }
