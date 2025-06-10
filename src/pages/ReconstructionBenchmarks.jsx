@@ -9,7 +9,7 @@ export default function ReconstructionBenchmarks() {
       {/* Metric Summary Table */}
       <div className="overflow-x-auto text-black bg-white p-4 rounded-xl shadow">
         <p className="text-lg font-semibold text-primary mb-2">Summary of Evaluation Metrics on Resynthesized Audio</p>
-        <table className="table-auto min-w-full border border-gray-300 text-sm">
+        {/* <table className="table-auto min-w-full border border-gray-300 text-sm">
           <thead className="bg-gray-100">
             <tr>
               <th className="text-left">Metric</th>
@@ -43,7 +43,62 @@ export default function ReconstructionBenchmarks() {
             <tr><td>WER</td><td>Word Error Rate (beam=5)</td><td>[0, ∞)</td><td>✓</td><td></td><td></td></tr>
             <tr><td>Spk Sim</td><td>Speaker Similarity</td><td>[-1, 1]</td><td>✓</td><td></td><td></td></tr>
           </tbody>
-        </table>
+        </table> */}
+        <table className="table-auto min-w-full border border-gray-300 text-sm">
+  <thead className="bg-gray-100">
+    <tr>
+      <th className="text-left px-2 py-1">Model / SR (kHz)</th>
+      <th colSpan="2" className="text-left border-r px-2 py-1">SDR ↑</th>
+      <th colSpan="2" className="text-left border-r px-2 py-1">SI-SNR ↑</th>
+      <th colSpan="2" className="text-left border-r px-2 py-1">PESQ ↑</th>
+      <th colSpan="2" className="text-left border-r px-2 py-1">UTMOS ↑</th>
+      <th colSpan="2" className="text-left border-r px-2 py-1">DNSMOS P835 ↑</th>
+      <th colSpan="2" className="text-left border-r px-2 py-1">WER ↓</th>
+      <th colSpan="2" className="text-left px-2 py-1">Spk Sim ↑</th>
+    </tr>
+    <tr>
+      {["16", "44.1", "16", "44.1", "16", "44.1", "16", "44.1", "16", "44.1", "16", "44.1", "16", "44.1"].map((sr, i) => {
+        const isEndOfMetric = i % 2 === 1 && i < 12;
+        return (
+          <th key={i} className={`text-left px-2 py-1 ${isEndOfMetric ? "border-r" : ""}`}>{sr}</th>
+        );
+      })}
+    </tr>
+  </thead>
+  <tbody>
+    {[
+      ["Ground truth", "-", "-", "-", "-", "-", "-", "4.09", "4.09", "3.18", "3.18", "2.83", "2.83", "-", "-"],
+      ["RVQ-S", "4.08", "8.24", "1.15", "6.38", "2.59", "3.24", "3.35", "3.62", "3.16", "3.16", "2.04", "2.63", "0.67", "0.90"],
+      ["RVQ-S+", "1.63", "8.40", "-1.77", "5.67", "2.22", "3.30", "3.12", "3.65", "3.12", "3.14", "2.12", "3.17", "0.69", "0.89"],
+      ["RVQ-A", "0.59", "6.92", "-3.36", "4.27", "2.02", "2.86", "1.81", "3.15", "2.58", "3.06", "2.47", "2.92", "0.51", "0.73"],
+      ["RVQ-M", "2.80", "6.74", "-0.68", "4.61", "2.00", "2.41", "1.64", "2.33", "2.64", "2.68", "3.20", "2.85", "0.44", "0.56"],
+      ["RVQ-3", "2.46", "7.50", "-1.12", "4.63", "2.43", "3.06", "2.71", "3.33", "2.96", "3.08", "2.22", "2.66", "0.61", "0.87"],
+      ["SVQ-S", "-4.90", "0.92", "-13.59", "-2.04", "1.43", "1.69", "2.19", "2.61", "3.09", "3.10", "13.16", "8.28", "0.35", "0.53"],
+      ["SVQ-S+", "-4.45", "-0.64", "-11.74", "-3.64", "1.42", "1.63", "2.14", "2.40", "3.00", "3.07", "13.71", "7.89", "0.36", "0.52"],
+      ["SVQ-A", "-11.80", "-5.04", "-33.46", "-9.56", "1.19", "1.18", "1.25", "1.26", "1.86", "1.97", "31.40", "34.68", "0.19", "0.14"],
+      ["SVQ-M", "-5.19", "-4.70", "-11.17", "-7.89", "1.20", "1.14", "1.29", "1.24", "2.19", "1.56", "14.88", "33.87", "0.15", "0.11"],
+      ["SVQ-3", "-5.90", "-3.09", "-15.13", "-7.12", "1.29", "1.79", "1.44", "2.57", "3.10", "3.01", "22.24", "6.71", "0.26", "0.49"],
+      ["FSQ-S", "3.89", "4.58", "1.75", "2.47", "2.08", "2.10", "3.29", "3.06", "3.21", "3.12", "3.57", "4.02", "0.48", "0.66"],
+      ["FSQ-A", "1.14", "1.00", "-1.89", "-1.58", "1.94", "1.74", "2.84", "2.41", "3.15", "2.97", "5.12", "7.59", "0.43", "0.39"],
+      ["FSQ-M", "-1.08", "-2.09", "-4.39", "-4.61", "1.39", "1.22", "1.57", "1.26", "2.66", "2.04", "24.46", "20.26", "0.17", "0.16"],
+      ["FSQ-3", "2.41", "1.29", "0.01", "-1.28", "1.97", "1.79", "3.06", "2.57", "3.20", "3.01", "4.35", "6.71", "0.44", "0.49"],
+      ["K-means-S", "-18.21", "-", "-42.98", "-", "1.05", "-", "2.28", "-", "2.46", "-", "6.78", "-", "0.13", "-"]
+    ].map((row, i) => (
+      <tr key={i}>
+        {row.map((val, j) => {
+          const isMetricEnd = j % 2 === 1 && j < row.length - 2;
+          const alignment = j === 0 ? "text-left" : "text-center";
+          return (
+            <td key={j} className={`border px-2 py-1 whitespace-nowrap ${alignment} ${isMetricEnd ? "border-r" : ""}`}>
+              {val}
+            </td>
+          );
+        })}
+      </tr>
+    ))}
+  </tbody>
+</table>
+
       </div>
 
       <div className="max-w-6xl mx-auto">
@@ -648,8 +703,7 @@ export default function ReconstructionBenchmarks() {
 
           <div className="text-base text-gray-700 dark:text-gray-900 max-w-3xl mx-auto">
             <span className="text-xl mr-2">💡</span>
-            These results underscore the importance of evaluating audio tokenizers beyond traditional waveform fidelity measures. Models optimized for perceptual or downstream tasks may exhibit low signal reconstruction performance, yet still produce subjectively high-quality audio reconstructions.
-          </div>
+            Overall, these results underscore the importance of evaluating audio tokenizers beyond traditional waveform fidelity measures. Models optimized for perceptual or downstream tasks may exhibit low signal reconstruction performance, yet still produce subjectively high-quality audio reconstructions.          </div>
         </div>
       </div>
     </div>

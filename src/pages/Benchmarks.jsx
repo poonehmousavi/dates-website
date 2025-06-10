@@ -14,10 +14,11 @@ export default function Benchmarks() {
 
 <div className="flex justify-center">
   <img
-    src="/dates-website/benchmark.png"
+    src="/dates-website/benchmark.svg"
     alt="Benchmark Design"
-    className="w-full max-w-2xl rounded-xl shadow-lg bg-white p-4"
+    className="w-full max-w-5xl rounded-xl shadow-lg bg-white p-6"
   />
+
 </div>
 
 <div className="flex flex-wrap justify-center gap-4 mt-6">

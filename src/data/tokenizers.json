@@ -1,68 +1,1354 @@
 [
-    {
-      "name": "AudioLM",
-      "architecture": "T",
-      "representation": "Time",
-      "algorithm": "RVQ",
-      "offline": "yes",
-      "bitrate": "Fixed",
-      "objective": ["GAN", "recon"],
-      "auxiliary": ["Semantic distillation"],
-      "joint": "yes",
-      "target_domain": ["speech", "audio"],
-      "streamability": "yes"
+  {
+    "tokenizer": "APCodec",
+    "domain": {
+      "speech": true,
+      "music": false,
+      "audio": false
     },
-    {
-      "name": "EnCodec",
-      "architecture": "CNN+RNN",
-      "representation": "Time-Freq",
-      "algorithm": "PQ",
-      "offline": "no",
-      "bitrate": "Adaptive",
-      "objective": ["recon"],
-      "auxiliary": [],
-      "joint": "no",
-      "target_domain": ["music"],
-      "streamability": "yes"
+    "frame_rate": "150",
+    "encoder_decoder": {
+      "architecture": {
+        "encoder": "CNN",
+        "decoder": "CNN"
+      },
+      "rep": "T-F"
     },
-    {
-      "name": "Wav2Vec2",
-      "architecture": "CNN+T",
-      "representation": "Time",
-      "algorithm": "FSQ",
-      "offline": "no",
-      "bitrate": "Fixed",
-      "objective": ["Feats", "VQ"],
-      "auxiliary": ["Supervised semantic"],
-      "joint": "yes",
-      "target_domain": ["speech"],
-      "streamability": "no"
+    "quantization": {
+      "tech": "RVQ",
+      "bit": "F"
     },
-    {
-      "name": "HuBERT-VQVAE",
-      "architecture": "CNN",
-      "representation": "Time-Freq",
-      "algorithm": "GVQ",
-      "offline": "yes",
-      "bitrate": "Adaptive",
-      "objective": ["MP"],
-      "auxiliary": ["Disentanglement"],
-      "joint": "no",
-      "target_domain": ["audio"],
-      "streamability": "no"
+    "training": {
+      "objective": "GAN, Feat, Rec, VQ",
+      "aux": "-",
+      "joint": true
     },
-    {
-      "name": "SemanticTokenNet",
-      "architecture": "RNN",
-      "representation": "Time",
-      "algorithm": "SVQ",
-      "offline": "no",
-      "bitrate": "Fixed",
-      "objective": ["Diff", "VQ"],
-      "auxiliary": ["Supervised semantic", "Semantic distillation"],
-      "joint": "yes",
-      "target_domain": ["speech", "music"],
-      "streamability": "yes"
-    }
-  ]
-  
+    "stream": true
+  },
+  {
+    "tokenizer": "AudioDec",
+    "domain": {
+      "speech": true,
+      "music": false,
+      "audio": false
+    },
+    "frame_rate": "160",
+    "encoder_decoder": {
+      "architecture": {
+        "encoder": "CNN",
+        "decoder": "CNN"
+      },
+      "rep": "T"
+    },
+    "quantization": {
+      "tech": "RVQ",
+      "bit": "F"
+    },
+    "training": {
+      "objective": "GAN, Feat, Rec, VQ",
+      "aux": "-",
+      "joint": true
+    },
+    "stream": true
+  },
+  {
+    "tokenizer": "Best-RQ",
+    "domain": {
+      "speech": true,
+      "music": false,
+      "audio": false
+    },
+    "frame_rate": "25",
+    "encoder_decoder": {
+      "architecture": {
+        "encoder": "CNN+T",
+        "decoder": "-"
+      },
+      "rep": "T-F"
+    },
+    "quantization": {
+      "tech": "PQ",
+      "bit": "F"
+    },
+    "training": {
+      "objective": "MP",
+      "aux": "-",
+      "joint": false
+    },
+    "stream": true
+  },
+  {
+    "tokenizer": "BigCodec",
+    "domain": {
+      "speech": true,
+      "music": false,
+      "audio": false
+    },
+    "frame_rate": "80",
+    "encoder_decoder": {
+      "architecture": {
+        "encoder": "CNN+RNN",
+        "decoder": "CNN+RNN"
+      },
+      "rep": "T"
+    },
+    "quantization": {
+      "tech": "SVQ",
+      "bit": "F"
+    },
+    "training": {
+      "objective": "GAN, Feat, Rec, VQ",
+      "aux": "-",
+      "joint": true
+    },
+    "stream": false
+  },
+  {
+    "tokenizer": "DAC",
+    "domain": {
+      "speech": true,
+      "music": true,
+      "audio": true
+    },
+    "frame_rate": "75",
+    "encoder_decoder": {
+      "architecture": {
+        "encoder": "CNN",
+        "decoder": "CNN"
+      },
+      "rep": "T"
+    },
+    "quantization": {
+      "tech": "RVQ",
+      "bit": "F"
+    },
+    "training": {
+      "objective": "GAN, Feat, Rec, VQ",
+      "aux": "-",
+      "joint": true
+    },
+    "stream": false
+  },
+  {
+    "tokenizer": "Discrete SSL",
+    "domain": {
+      "speech": true,
+      "music": false,
+      "audio": false
+    },
+    "frame_rate": "50",
+    "encoder_decoder": {
+      "architecture": {
+        "encoder": "CNN+T",
+        "decoder": "T"
+      },
+      "rep": "T"
+    },
+    "quantization": {
+      "tech": "K-Means",
+      "bit": "F"
+    },
+    "training": {
+      "objective": "GAN, Feat, Rec, MP",
+      "aux": "-",
+      "joint": false
+    },
+    "stream": false
+  },
+  {
+    "tokenizer": "Disen-TF-Codec",
+    "domain": {
+      "speech": true,
+      "music": false,
+      "audio": false
+    },
+    "frame_rate": "19",
+    "encoder_decoder": {
+      "architecture": {
+        "encoder": "CNN+RNN",
+        "decoder": "CNN"
+      },
+      "rep": "T-F"
+    },
+    "quantization": {
+      "tech": "GRVQ",
+      "bit": "A"
+    },
+    "training": {
+      "objective": "GAN, Feat, Rec, (Pred)",
+      "aux": "Dis",
+      "joint": true
+    },
+    "stream": true
+  },
+  {
+    "tokenizer": "dMel",
+    "domain": {
+      "speech": true,
+      "music": false,
+      "audio": false
+    },
+    "frame_rate": "40",
+    "encoder_decoder": {
+      "architecture": {
+        "encoder": "-",
+        "decoder": "CNN"
+      },
+      "rep": "T-F"
+    },
+    "quantization": {
+      "tech": "SVQ",
+      "bit": "F"
+    },
+    "training": {
+      "objective": "GAN, Feat, Rec, VQ",
+      "aux": "-",
+      "joint": true
+    },
+    "stream": false
+  },
+  {
+    "tokenizer": "EnCodec",
+    "domain": {
+      "speech": true,
+      "music": true,
+      "audio": true
+    },
+    "frame_rate": "75, 150",
+    "encoder_decoder": {
+      "architecture": {
+        "encoder": "CNN+RNN",
+        "decoder": "CNN"
+      },
+      "rep": "T"
+    },
+    "quantization": {
+      "tech": "RVQ",
+      "bit": "F"
+    },
+    "training": {
+      "objective": "GAN, Feat, Rec, VQ",
+      "aux": "-",
+      "joint": true
+    },
+    "stream": true
+  },
+  {
+    "tokenizer": "ESC",
+    "domain": {
+      "speech": true,
+      "music": false,
+      "audio": false
+    },
+    "frame_rate": "150",
+    "encoder_decoder": {
+      "architecture": {
+        "encoder": "T",
+        "decoder": "T"
+      },
+      "rep": "T-F"
+    },
+    "quantization": {
+      "tech": "CSRVQ",
+      "bit": "F"
+    },
+    "training": {
+      "objective": "Rec, VQ",
+      "aux": "-",
+      "joint": true
+    },
+    "stream": false
+  },
+  {
+    "tokenizer": "FACodec",
+    "domain": {
+      "speech": true,
+      "music": false,
+      "audio": false
+    },
+    "frame_rate": "80",
+    "encoder_decoder": {
+      "architecture": {
+        "encoder": "CNN+RNN",
+        "decoder": "CNN+RNN"
+      },
+      "rep": "T"
+    },
+    "quantization": {
+      "tech": "GRVQ",
+      "bit": "F"
+    },
+    "training": {
+      "objective": "GAN, Feat, Rec, VQ",
+      "aux": "Dis",
+      "joint": true
+    },
+    "stream": false
+  },
+  {
+    "tokenizer": "FunCodec",
+    "domain": {
+      "speech": true,
+      "music": false,
+      "audio": false
+    },
+    "frame_rate": "1.25, 25, 50",
+    "encoder_decoder": {
+      "architecture": {
+        "encoder": "CNN+RNN",
+        "decoder": "CNN+RNN"
+      },
+      "rep": "T-F"
+    },
+    "quantization": {
+      "tech": "RVQ",
+      "bit": "F"
+    },
+    "training": {
+      "objective": "GAN, Feat, Rec, VQ",
+      "aux": "SD",
+      "joint": true
+    },
+    "stream": false
+  },
+  {
+    "tokenizer": "HARP-Net",
+    "domain": {
+      "speech": false,
+      "music": true,
+      "audio": false
+    },
+    "frame_rate": "44100",
+    "encoder_decoder": {
+      "architecture": {
+        "encoder": "CNN",
+        "decoder": "CNN"
+      },
+      "rep": "T"
+    },
+    "quantization": {
+      "tech": "FSQ",
+      "bit": "A"
+    },
+    "training": {
+      "objective": "Rec",
+      "aux": "-",
+      "joint": true
+    },
+    "stream": false
+  },
+  {
+    "tokenizer": "HiFi-Codec",
+    "domain": {
+      "speech": true,
+      "music": false,
+      "audio": false
+    },
+    "frame_rate": "50, 75, 100",
+    "encoder_decoder": {
+      "architecture": {
+        "encoder": "CNN+RNN",
+        "decoder": "CNN+RNN"
+      },
+      "rep": "T"
+    },
+    "quantization": {
+      "tech": "GRVQ",
+      "bit": "F"
+    },
+    "training": {
+      "objective": "GAN, Feat, Rec, VQ",
+      "aux": "-",
+      "joint": true
+    },
+    "stream": false
+  },
+  {
+    "tokenizer": "HILCodec",
+    "domain": {
+      "speech": true,
+      "music": true,
+      "audio": true
+    },
+    "frame_rate": "75",
+    "encoder_decoder": {
+      "architecture": {
+        "encoder": "CNN",
+        "decoder": "CNN"
+      },
+      "rep": "T"
+    },
+    "quantization": {
+      "tech": "RVQ",
+      "bit": "F"
+    },
+    "training": {
+      "objective": "GAN, Feat, Rec, VQ",
+      "aux": "-",
+      "joint": true
+    },
+    "stream": true
+  },
+  {
+    "tokenizer": "LaDiffCodec",
+    "domain": {
+      "speech": true,
+      "music": false,
+      "audio": false
+    },
+    "frame_rate": "50",
+    "encoder_decoder": {
+      "architecture": {
+        "encoder": "CNN",
+        "decoder": "CNN"
+      },
+      "rep": "T"
+    },
+    "quantization": {
+      "tech": "RVQ",
+      "bit": "F"
+    },
+    "training": {
+      "objective": "Diff",
+      "aux": "-",
+      "joint": true
+    },
+    "stream": false
+  },
+  {
+    "tokenizer": "Language Codec",
+    "domain": {
+      "speech": true,
+      "music": false,
+      "audio": false
+    },
+    "frame_rate": "75",
+    "encoder_decoder": {
+      "architecture": {
+        "encoder": "CNN+RNN",
+        "decoder": "CNN"
+      },
+      "rep": "T,T-F"
+    },
+    "quantization": {
+      "tech": "RVQ",
+      "bit": "F"
+    },
+    "training": {
+      "objective": "GAN, Feat, Rec, VQ",
+      "aux": "-",
+      "joint": true
+    },
+    "stream": false
+  },
+  {
+    "tokenizer": "LFSC",
+    "domain": {
+      "speech": true,
+      "music": false,
+      "audio": false
+    },
+    "frame_rate": "21.5",
+    "encoder_decoder": {
+      "architecture": {
+        "encoder": "CNN",
+        "decoder": "CNN"
+      },
+      "rep": "T"
+    },
+    "quantization": {
+      "tech": "FSQ",
+      "bit": "F"
+    },
+    "training": {
+      "objective": "GAN, Feat, Rec",
+      "aux": "SD",
+      "joint": true
+    },
+    "stream": false
+  },
+  {
+    "tokenizer": "LLMCodec",
+    "domain": {
+      "speech": true,
+      "music": false,
+      "audio": true
+    },
+    "frame_rate": "57",
+    "encoder_decoder": {
+      "architecture": {
+        "encoder": "CNN+T",
+        "decoder": "CNN+T"
+      },
+      "rep": "T"
+    },
+    "quantization": {
+      "tech": "MSRVQ",
+      "bit": "F"
+    },
+    "training": {
+      "objective": "GAN, Rec",
+      "aux": "SD",
+      "joint": true
+    },
+    "stream": false
+  },
+  {
+    "tokenizer": "LSCodec",
+    "domain": {
+      "speech": true,
+      "music": false,
+      "audio": false
+    },
+    "frame_rate": "25, 50",
+    "encoder_decoder": {
+      "architecture": {
+        "encoder": "CNN",
+        "decoder": "CNN"
+      },
+      "rep": "T"
+    },
+    "quantization": {
+      "tech": "SVQ",
+      "bit": "F"
+    },
+    "training": {
+      "objective": "GAN, Feat, Rec",
+      "aux": "Dis, SD",
+      "joint": false
+    },
+    "stream": false
+  },
+  {
+    "tokenizer": "MDCTCodec",
+    "domain": {
+      "speech": true,
+      "music": false,
+      "audio": false
+    },
+    "frame_rate": "150",
+    "encoder_decoder": {
+      "architecture": {
+        "encoder": "CNN",
+        "decoder": "CNN"
+      },
+      "rep": "T-F"
+    },
+    "quantization": {
+      "tech": "RVQ",
+      "bit": "F"
+    },
+    "training": {
+      "objective": "GAN, Feat, Rec, VQ",
+      "aux": "",
+      "joint": true
+    },
+    "stream": false
+  },
+  {
+    "tokenizer": "Mimi",
+    "domain": {
+      "speech": true,
+      "music": false,
+      "audio": false
+    },
+    "frame_rate": "12.5",
+    "encoder_decoder": {
+      "architecture": {
+        "encoder": "CNN+T",
+        "decoder": "CNN+T"
+      },
+      "rep": "T"
+    },
+    "quantization": {
+      "tech": "RVQ",
+      "bit": "F"
+    },
+    "training": {
+      "objective": "GAN, Feat, Rec, VQ",
+      "aux": "SD",
+      "joint": true
+    },
+    "stream": true
+  },
+  {
+    "tokenizer": "MMM",
+    "domain": {
+      "speech": true,
+      "music": false,
+      "audio": false
+    },
+    "frame_rate": "50",
+    "encoder_decoder": {
+      "architecture": {
+        "encoder": "CNN+T",
+        "decoder": "CNN"
+      },
+      "rep": "T"
+    },
+    "quantization": {
+      "tech": "K-Means",
+      "bit": "F"
+    },
+    "training": {
+      "objective": "GAN, Feat, Rec, MP",
+      "aux": "-",
+      "joint": false
+    },
+    "stream": false
+  },
+  {
+    "tokenizer": "NAST",
+    "domain": {
+      "speech": true,
+      "music": false,
+      "audio": false
+    },
+    "frame_rate": "50",
+    "encoder_decoder": {
+      "architecture": {
+        "encoder": "CNN+T",
+        "decoder": "CNN+T"
+      },
+      "rep": "T"
+    },
+    "quantization": {
+      "tech": "FSQ",
+      "bit": "F"
+    },
+    "training": {
+      "objective": "Rec, VQ, MP",
+      "aux": "SD",
+      "joint": true
+    },
+    "stream": false
+  },
+  {
+    "tokenizer": "NDVQ",
+    "domain": {
+      "speech": true,
+      "music": false,
+      "audio": false
+    },
+    "frame_rate": "75",
+    "encoder_decoder": {
+      "architecture": {
+        "encoder": "CNN+RNN",
+        "decoder": "CNN+RNN"
+      },
+      "rep": "T"
+    },
+    "quantization": {
+      "tech": "RVQ",
+      "bit": "F"
+    },
+    "training": {
+      "objective": "GAN, Feat, Rec, VQ",
+      "aux": "-",
+      "joint": true
+    },
+    "stream": false
+  },
+  {
+    "tokenizer": "PAST",
+    "domain": {
+      "speech": true,
+      "music": false,
+      "audio": false
+    },
+    "frame_rate": "75",
+    "encoder_decoder": {
+      "architecture": {
+        "encoder": "CNN+T",
+        "decoder": "CNN"
+      },
+      "rep": "T"
+    },
+    "quantization": {
+      "tech": "RVQ",
+      "bit": "F"
+    },
+    "training": {
+      "objective": "GAN, Feat, Rec, VQ",
+      "aux": "SST",
+      "joint": true
+    },
+    "stream": true
+  },
+  {
+    "tokenizer": "PQ-VAE",
+    "domain": {
+      "speech": true,
+      "music": false,
+      "audio": false
+    },
+    "frame_rate": "75",
+    "encoder_decoder": {
+      "architecture": {
+        "encoder": "CNN",
+        "decoder": "CNN"
+      },
+      "rep": "T-F"
+    },
+    "quantization": {
+      "tech": "PQ",
+      "bit": "F"
+    },
+    "training": {
+      "objective": "Rec, VQ",
+      "aux": "-",
+      "joint": true
+    },
+    "stream": false
+  },
+  {
+    "tokenizer": "Prompt Codec",
+    "domain": {
+      "speech": true,
+      "music": false,
+      "audio": false
+    },
+    "frame_rate": "75",
+    "encoder_decoder": {
+      "architecture": {
+        "encoder": "CNN+RNN",
+        "decoder": "CNN+RNN"
+      },
+      "rep": "T-F"
+    },
+    "quantization": {
+      "tech": "GRVQ",
+      "bit": "F"
+    },
+    "training": {
+      "objective": "GAN, Feat, Rec, VQ",
+      "aux": "-",
+      "joint": true
+    },
+    "stream": false
+  },
+  {
+    "tokenizer": "RepCodec",
+    "domain": {
+      "speech": true,
+      "music": false,
+      "audio": false
+    },
+    "frame_rate": "50",
+    "encoder_decoder": {
+      "architecture": {
+        "encoder": "CNN",
+        "decoder": "CNN"
+      },
+      "rep": "T"
+    },
+    "quantization": {
+      "tech": "SVQ",
+      "bit": "F"
+    },
+    "training": {
+      "objective": "Rec, VQ , MP",
+      "aux": "-",
+      "joint": true
+    },
+    "stream": false
+  },
+  {
+    "tokenizer": "S-TFNet",
+    "domain": {
+      "speech": true,
+      "music": false,
+      "audio": false
+    },
+    "frame_rate": "-",
+    "encoder_decoder": {
+      "architecture": {
+        "encoder": "CNN+RNN",
+        "decoder": "CNN"
+      },
+      "rep": "T-F"
+    },
+    "quantization": {
+      "tech": "CSRVQ",
+      "bit": "F"
+    },
+    "training": {
+      "objective": "GAN, Rec, VQ",
+      "aux": "-",
+      "joint": true
+    },
+    "stream": false
+  },
+  {
+    "tokenizer": "S3",
+    "domain": {
+      "speech": true,
+      "music": false,
+      "audio": false
+    },
+    "frame_rate": "-",
+    "encoder_decoder": {
+      "architecture": {
+        "encoder": "T",
+        "decoder": "T"
+      },
+      "rep": "T"
+    },
+    "quantization": {
+      "tech": "SVQ",
+      "bit": "F"
+    },
+    "training": {
+      "objective": "Diff",
+      "aux": "SST",
+      "joint": false
+    },
+    "stream": false
+  },
+  {
+    "tokenizer": "SD-Codec",
+    "domain": {
+      "speech": true,
+      "music": true,
+      "audio": true
+    },
+    "frame_rate": "50",
+    "encoder_decoder": {
+      "architecture": {
+        "encoder": "CNN",
+        "decoder": "CNN"
+      },
+      "rep": "T"
+    },
+    "quantization": {
+      "tech": "RVQ",
+      "bit": "F"
+    },
+    "training": {
+      "objective": "GAN, Rec, Feat, VQ",
+      "aux": "Dis",
+      "joint": true
+    },
+    "stream": false
+  },
+  {
+    "tokenizer": "SemantiCodec",
+    "domain": {
+      "speech": true,
+      "music": true,
+      "audio": true
+    },
+    "frame_rate": "50",
+    "encoder_decoder": {
+      "architecture": {
+        "encoder": "CNN+T",
+        "decoder": "T"
+      },
+      "rep": "T"
+    },
+    "quantization": {
+      "tech": "RVQ",
+      "bit": "F"
+    },
+    "training": {
+      "objective": "Diff, VQ",
+      "aux": "SD",
+      "joint": true
+    },
+    "stream": false
+  },
+  {
+    "tokenizer": "Single Codec",
+    "domain": {
+      "speech": true,
+      "music": false,
+      "audio": false
+    },
+    "frame_rate": "23",
+    "encoder_decoder": {
+      "architecture": {
+        "encoder": "CNN+RNN",
+        "decoder": "CNN+RNN"
+      },
+      "rep": "T-F"
+    },
+    "quantization": {
+      "tech": "SVQ",
+      "bit": "F"
+    },
+    "training": {
+      "objective": "GAN, Rec, VQ",
+      "aux": "-",
+      "joint": true
+    },
+    "stream": false
+  },
+  {
+    "tokenizer": "SingOMD",
+    "domain": {
+      "speech": false,
+      "music": true,
+      "audio": false
+    },
+    "frame_rate": "50",
+    "encoder_decoder": {
+      "architecture": {
+        "encoder": "CNN+T",
+        "decoder": "CNN"
+      },
+      "rep": "T"
+    },
+    "quantization": {
+      "tech": "K-Means",
+      "bit": "F"
+    },
+    "training": {
+      "objective": "GAN, Feat, Rec, MP",
+      "aux": "-",
+      "joint": false
+    },
+    "stream": false
+  },
+  {
+    "tokenizer": "SNAC",
+    "domain": {
+      "speech": true,
+      "music": true,
+      "audio": true
+    },
+    "frame_rate": "Variable",
+    "encoder_decoder": {
+      "architecture": {
+        "encoder": "CNN+RNN",
+        "decoder": "CNN"
+      },
+      "rep": "T"
+    },
+    "quantization": {
+      "tech": "MSRVQ",
+      "bit": "F"
+    },
+    "training": {
+      "objective": "GAN, Feat, Rec, VQ",
+      "aux": "-",
+      "joint": true
+    },
+    "stream": false
+  },
+  {
+    "tokenizer": "SOCODEC",
+    "domain": {
+      "speech": true,
+      "music": false,
+      "audio": false
+    },
+    "frame_rate": "20",
+    "encoder_decoder": {
+      "architecture": {
+        "encoder": "CNN",
+        "decoder": "CNN"
+      },
+      "rep": "T-F"
+    },
+    "quantization": {
+      "tech": "PQ",
+      "bit": "F"
+    },
+    "training": {
+      "objective": "GAN, Rec, VQ",
+      "aux": "Dis",
+      "joint": true
+    },
+    "stream": false
+  },
+  {
+    "tokenizer": "SoundStream",
+    "domain": {
+      "speech": true,
+      "music": true,
+      "audio": false
+    },
+    "frame_rate": "75",
+    "encoder_decoder": {
+      "architecture": {
+        "encoder": "CNN",
+        "decoder": "CNN"
+      },
+      "rep": "T"
+    },
+    "quantization": {
+      "tech": "RVQ",
+      "bit": "F"
+    },
+    "training": {
+      "objective": "GAN, Rec, Feat",
+      "aux": "-",
+      "joint": true
+    },
+    "stream": true
+  },
+  {
+    "tokenizer": "Spectral Codecs",
+    "domain": {
+      "speech": true,
+      "music": false,
+      "audio": false
+    },
+    "frame_rate": "86.1",
+    "encoder_decoder": {
+      "architecture": {
+        "encoder": "CNN",
+        "decoder": "CNN"
+      },
+      "rep": "T-F"
+    },
+    "quantization": {
+      "tech": "FSQ",
+      "bit": "F"
+    },
+    "training": {
+      "objective": "GAN, Feat, Rec",
+      "aux": "-",
+      "joint": true
+    },
+    "stream": false
+  },
+  {
+    "tokenizer": "SpeechTokenizer",
+    "domain": {
+      "speech": true,
+      "music": false,
+      "audio": false
+    },
+    "frame_rate": "50",
+    "encoder_decoder": {
+      "architecture": {
+        "encoder": "CNN+RNN",
+        "decoder": "CNN"
+      },
+      "rep": "T"
+    },
+    "quantization": {
+      "tech": "RVQ",
+      "bit": "F"
+    },
+    "training": {
+      "objective": "GAN, Rec, Feat, VQ",
+      "aux": "SD",
+      "joint": true
+    },
+    "stream": false
+  },
+  {
+    "tokenizer": "SQ-Codec",
+    "domain": {
+      "speech": true,
+      "music": false,
+      "audio": false
+    },
+    "frame_rate": "50",
+    "encoder_decoder": {
+      "architecture": {
+        "encoder": "CNN",
+        "decoder": "CNN"
+      },
+      "rep": "T"
+    },
+    "quantization": {
+      "tech": "FSQ",
+      "bit": "F"
+    },
+    "training": {
+      "objective": "GAN, Rec",
+      "aux": "-",
+      "joint": true
+    },
+    "stream": false
+  },
+  {
+    "tokenizer": "TAAE",
+    "domain": {
+      "speech": true,
+      "music": false,
+      "audio": false
+    },
+    "frame_rate": "25",
+    "encoder_decoder": {
+      "architecture": {
+        "encoder": "CNN+T",
+        "decoder": "CNN+T"
+      },
+      "rep": "T"
+    },
+    "quantization": {
+      "tech": "FSQ",
+      "bit": "F"
+    },
+    "training": {
+      "objective": "GAN, Feat, Rec",
+      "aux": "SD",
+      "joint": true
+    },
+    "stream": true
+  },
+  {
+    "tokenizer": "TFNet",
+    "domain": {
+      "speech": true,
+      "music": false,
+      "audio": false
+    },
+    "frame_rate": "120",
+    "encoder_decoder": {
+      "architecture": {
+        "encoder": "CNN+RNN",
+        "decoder": "CNN"
+      },
+      "rep": "T-F"
+    },
+    "quantization": {
+      "tech": "GRVQ",
+      "bit": "F"
+    },
+    "training": {
+      "objective": "Rec, VQ",
+      "aux": "-",
+      "joint": true
+    },
+    "stream": false
+  },
+  {
+    "tokenizer": "Ti-Codec",
+    "domain": {
+      "speech": true,
+      "music": false,
+      "audio": false
+    },
+    "frame_rate": "75",
+    "encoder_decoder": {
+      "architecture": {
+        "encoder": "CNN+RNN",
+        "decoder": "CNN+RNN"
+      },
+      "rep": "T"
+    },
+    "quantization": {
+      "tech": "RVQ",
+      "bit": "F"
+    },
+    "training": {
+      "objective": "GAN, Feat, Rec, V",
+      "aux": "Dis",
+      "joint": true
+    },
+    "stream": false
+  },
+  {
+    "tokenizer": "TS3-Codec",
+    "domain": {
+      "speech": true,
+      "music": false,
+      "audio": false
+    },
+    "frame_rate": "40, 50",
+    "encoder_decoder": {
+      "architecture": {
+        "encoder": "T",
+        "decoder": "T"
+      },
+      "rep": "T"
+    },
+    "quantization": {
+      "tech": "SVQ",
+      "bit": "F"
+    },
+    "training": {
+      "objective": "GAN, Feat, Rec, V",
+      "aux": "-",
+      "joint": true
+    },
+    "stream": true
+  },
+  {
+    "tokenizer": "USM",
+    "domain": {
+      "speech": true,
+      "music": false,
+      "audio": false
+    },
+    "frame_rate": "25",
+    "encoder_decoder": {
+      "architecture": {
+        "encoder": "CNN+T",
+        "decoder": "-"
+      },
+      "rep": "T-F"
+    },
+    "quantization": {
+      "tech": "PQ",
+      "bit": "F"
+    },
+    "training": {
+      "objective": "MP",
+      "aux": "-",
+      "joint": false
+    },
+    "stream": false
+  },
+  {
+    "tokenizer": "Vocos",
+    "domain": {
+      "speech": true,
+      "music": false,
+      "audio": false
+    },
+    "frame_rate": "50",
+    "encoder_decoder": {
+      "architecture": {
+        "encoder": "CNN",
+        "decoder": "CNN"
+      },
+      "rep": "T-F"
+    },
+    "quantization": {
+      "tech": "RVQ",
+      "bit": "F"
+    },
+    "training": {
+      "objective": "GAN, Feat, Rec",
+      "aux": "-",
+      "joint": true
+    },
+    "stream": false
+  },
+  {
+    "tokenizer": "WavTokenizer",
+    "domain": {
+      "speech": true,
+      "music": true,
+      "audio": true
+    },
+    "frame_rate": "40, 75",
+    "encoder_decoder": {
+      "architecture": {
+        "encoder": "CNN+T",
+        "decoder": "CNN+T"
+      },
+      "rep": "T"
+    },
+    "quantization": {
+      "tech": "SVQ",
+      "bit": "F"
+    },
+    "training": {
+      "objective": "GAN, Feat, Rec, VQ",
+      "aux": "-",
+      "joint": true
+    },
+    "stream": false
+  },
+  {
+    "tokenizer": "Wav2Vec-BERT",
+    "domain": {
+      "speech": true,
+      "music": false,
+      "audio": false
+    },
+    "frame_rate": "25",
+    "encoder_decoder": {
+      "architecture": {
+        "encoder": "CNN+T",
+        "decoder": "-"
+      },
+      "rep": "T"
+    },
+    "quantization": {
+      "tech": "PQ",
+      "bit": "F"
+    },
+    "training": {
+      "objective": "MP",
+      "aux": "-",
+      "joint": true
+    },
+    "stream": false
+  },
+  {
+    "tokenizer": "WMCodec",
+    "domain": {
+      "speech": true,
+      "music": false,
+      "audio": false
+    },
+    "frame_rate": "75",
+    "encoder_decoder": {
+      "architecture": {
+        "encoder": "CNN+T",
+        "decoder": "CNN"
+      },
+      "rep": "T"
+    },
+    "quantization": {
+      "tech": "RVQ",
+      "bit": "F"
+    },
+    "training": {
+      "objective": "GAN, Feat, Rec",
+      "aux": "-",
+      "joint": true
+    },
+    "stream": false
+  },
+  {
+    "tokenizer": "X-Codec",
+    "domain": {
+      "speech": true,
+      "music": true,
+      "audio": true
+    },
+    "frame_rate": "50",
+    "encoder_decoder": {
+      "architecture": {
+        "encoder": "CNN",
+        "decoder": "CNN"
+      },
+      "rep": "T"
+    },
+    "quantization": {
+      "tech": "RVQ",
+      "bit": "F"
+    },
+    "training": {
+      "objective": "GAN, Rec, V",
+      "aux": "SD",
+      "joint": true
+    },
+    "stream": false
+  },
+  {
+    "tokenizer": "XEUS",
+    "domain": {
+      "speech": true,
+      "music": false,
+      "audio": false
+    },
+    "frame_rate": "50",
+    "encoder_decoder": {
+      "architecture": {
+        "encoder": "CNN+T",
+        "decoder": "-"
+      },
+      "rep": "T"
+    },
+    "quantization": {
+      "tech": "K-Means",
+      "bit": "F"
+    },
+    "training": {
+      "objective": "MP",
+      "aux": "-",
+      "joint": false
+    },
+    "stream": false
+  }
+]
