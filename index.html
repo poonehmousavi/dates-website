@@ -9,6 +9,15 @@
         document.documentElement.classList.remove('light');
       })();
     </script>
+    <script>
+      (function () {
+        const params = new URLSearchParams(window.location.search);
+        const redirect = params.get('redirect');
+        if (redirect) {
+          window.history.replaceState(null, '', redirect);
+        }
+      })();
+    </script>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/DATES_Logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
