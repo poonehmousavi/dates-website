@@ -43,7 +43,7 @@ export default function App() {
               {/* <Link to="/ablation" className="hover:underline">Ablation</Link> */}
               <Link to="/team" className="hover:underline">Team</Link>
               <a
-  href="https://arxiv.org/abs/your-paper-id" // replace with actual paper link
+  href="https://arxiv.org/abs/2506.10274" // replace with actual paper link
   target="_blank"
   rel="noopener noreferrer"
   className="hover:underline"

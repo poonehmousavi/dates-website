@@ -64,15 +64,18 @@ export default function Home() {
   const navigate = useNavigate();
   const [copied, setCopied] = useState(false);
 
-  const bibtex = `@misc{dates,
-  title=Discrete Audio Tokens: More Than a Survey!,
-  author=,
+  const bibtex = `@misc{mousavi2025discreteaudiotokenssurvey,
+  title={Discrete Audio Tokens: More Than a Survey!}, 
+  author={Pooneh Mousavi and Gallil Maimon and Adel Moumen and Darius Petermann and Jiatong Shi and Haibin Wu 
+  and Haici Yang and Anastasia Kuznetsova and Artem Ploujnikov and Ricard Marxer and Bhuvana Ramabhadran and 
+  Benjamin Elizalde and Loren Lugosch and Jinyu Li and Cem Subakan and Phil Woodland and Minje Kim and 
+  Hung-yi Lee and Shinji Watanabe and Yossi Adi and Mirco Ravanelli},
   year={2025},
-  eprint={TBA},
+  eprint={2506.10274},
   archivePrefix={arXiv},
-  primaryClass={TBA},
-  note={TBA}
-}`;
+  primaryClass={cs.SD},
+  url={https://arxiv.org/abs/2506.10274}, 
+  }`;
 
   const handleCopy = () => {
     navigator.clipboard.writeText(bibtex).then(() => {
@@ -127,7 +130,7 @@ export default function Home() {
       {/* Paper Button */}
       <div className="mt-10">
         <a
-          href="https://arxiv.org/abs/XXXX.XXXXX"
+          href="https://arxiv.org/abs/2506.10274"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-primary to-accent text-white font-bold rounded-full text-lg hover:scale-105 transition-transform"
