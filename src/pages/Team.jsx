@@ -7,7 +7,7 @@ const coreContributors = [
   { name: 'Darius Petermann', affiliation: 'Indiana University', website: 'https://www.dariuspetermann.com/' },
   { name: 'Jiatong Shi', affiliation: 'Carnegie Mellon University', website: 'http://shijt.site/' },
   { name: 'Haibin Wu', affiliation: 'Microsoft', website: 'https://hbwu-ntu.github.io/' },
-  { name: 'Haici Yang', affiliation: 'Indiana University', website: 'https://haiciyang.github.io/resume.html' },
+  { name: 'Haici Yang', affiliation: 'Indiana University', website: 'https://haiciyang.github.io/' },
   { name: 'Anastasia Kuznetsova', affiliation: 'Indiana University', website: 'https://ana-kuznetsova.github.io/' },
 ];
 
