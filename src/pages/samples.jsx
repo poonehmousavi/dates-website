@@ -19,6 +19,7 @@ const TOKENIZERS = {
       speech:   ["Enc-SMA-24", "DWavL-S-16"],
       audio:    ["DAC-SMA-24", "WT-SMA-24"],
       music:    ["WT-SMA-24", "Mimi-S-24"],
+      tts:      ["DWavL-S-16", "Enc-SMA-24", "DAC-SMA-24", "ST-S-16", "WT-SMA-24", "Mimi-SMA-24"]
     },
     abl: {
       speech:   ["ST-S-16", "Mimi-S-24"],
