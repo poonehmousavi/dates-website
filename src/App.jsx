@@ -41,7 +41,7 @@ export default function App() {
               <Link to="/" className="hover:underline">Home</Link>
               <Link to="/taxonomy" className="hover:underline">Taxonomy</Link>
               <Link to="/benchmarks" className="hover:underline">Benchmarks</Link>
-              {/* <Link to="/samples" className="hover:underline">Listen</Link> */}
+              <Link to="/samples" className="hover:underline">Listen</Link>
               <Link to="/team" className="hover:underline">Team</Link>
               <a
   href="https://arxiv.org/abs/2506.10274" // replace with actual paper link
