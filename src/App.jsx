@@ -9,6 +9,7 @@ import DownstreamBenchmarks from './pages/DownstreamBenchmarks';
 import AcousticLMBenchmarks from './pages/AcousticLMBenchmarks';
 import AblationStudy from './pages/Ablation';
 import Team from './pages/Team';
+import AudioSamples from './pages/samples';
 
 export default function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -40,7 +41,7 @@ export default function App() {
               <Link to="/" className="hover:underline">Home</Link>
               <Link to="/taxonomy" className="hover:underline">Taxonomy</Link>
               <Link to="/benchmarks" className="hover:underline">Benchmarks</Link>
-              {/* <Link to="/ablation" className="hover:underline">Ablation</Link> */}
+              {/* <Link to="/samples" className="hover:underline">Listen</Link> */}
               <Link to="/team" className="hover:underline">Team</Link>
               <a
   href="https://arxiv.org/abs/2506.10274" // replace with actual paper link
@@ -73,6 +74,8 @@ export default function App() {
             <Route path="/benchmarks/reconstruction" element={<ReconstructionBenchmarks />} />
             <Route path="/benchmarks/Downstream" element={<DownstreamBenchmarks />} />
             <Route path="/benchmarks/acousticlm" element={<AcousticLMBenchmarks />} />
+            <Route path="/samples/" element={<AudioSamples />} />
+
           </Routes>
         </main>
       </div>
