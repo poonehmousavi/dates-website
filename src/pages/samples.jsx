@@ -8,7 +8,7 @@ const TOKENIZERS = {
   rec: {
     speech: ["Enc-SMA-24", "DAC-SMA-24", "ST-S-16"],
     audio: ["Enc-SMA-24", "DAC-SMA-24"],
-    music: ["Enc-SMA-24", "SQ-SMA-16"],
+    music: ["Enc-SMA-24", "SQ-SMA-16", "DAC-SMA-24"],
   },
   lm: {
     speech: ["PROMPT","Enc-SMA-24", "DWavL-S-16"],
