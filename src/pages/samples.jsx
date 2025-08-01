@@ -6,15 +6,15 @@ import { Link } from "react-router-dom";
 
 const TOKENIZERS = {
   rec: {
-    speech: ["Enc-SMA-24", "DAC-SMA-24", "ST-S-16"],
+    speech: ["Enc-SMA-24-2", "Enc-SMA-24-8","Enc-SMA-24-32","DAC-SMA-24-2", "DAC-SMA-24-8","DAC-SMA-24-32", "ST-S-16-2","ST-S-16-8","Mimi-S-24-8", "Mimi-S-24-32", "DWavL-S-16-2", "DWavL-S-16-6", "SQ-SMA-16","WT-SMA-24","WT-S-24"],
     audio: ["Enc-SMA-24", "DAC-SMA-24"],
-    music: ["Enc-SMA-24", "SQ-SMA-16"],
+    music: ["Enc-SMA-24", "DAC-SMA-24"],
   },
   lm: {
     speech: ["PROMPT","Enc-SMA-24", "DWavL-S-16"],
-    audio: ["DAC-SMA-24", "WT-SMA-24"],
+    audio: ["Enc-A-16","DAC-SMA-44", "SQ-SMA-16", "WT-SMA-24"],
     music: ["WT-SMA-24", "Mimi-S-24"],
-    tts: ["DWavL-S-16", "Enc-SMA-24", "DAC-SMA-24", "ST-S-16", "WT-SMA-24", "Mimi-SMA-24"]
+    tts: ["REFERENCE",  "Enc-SMA-24", "DAC-SMA-24", "ST-S-16", , "Mimi-SMA-24", "DWavL-S-16", "WT-SMA-24"]
   },
   abl: {
     speech: {
