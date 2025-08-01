@@ -17,9 +17,102 @@ const TOKENIZERS = {
     tts: ["DWavL-S-16", "Enc-SMA-24", "DAC-SMA-24", "ST-S-16", "WT-SMA-24", "Mimi-SMA-24"]
   },
   abl: {
-    speech: ["ST-S-16", "Mimi-S-24"],
-    audio: ["DAC-SMA-24"],
-    music: ["SQ-SMA-16", "WT-SMA-24"],
+    speech: {
+      rvq: {
+        "16k": {
+          semantic: { s: [1, 2, 3], m: [1, 2, 3], a: [1, 2, 3], "3": [1, 2, 3] },
+          nonsemantic: { s: [1, 2, 3], m: [1, 2, 3], a: [1, 2, 3], "3": [1, 2, 3] }
+        },
+        "44k": {
+          semantic: { s: [1, 2, 3], m: [1, 2, 3], a: [1, 2, 3], "3": [1, 2, 3] },
+          nonsemantic: { s: [1, 2, 3], m: [1, 2, 3], a: [1, 2, 3], "3": [1, 2, 3] }
+        }
+      },
+      svq: {
+        "16k": {
+          semantic: { s: [1, 2, 3], m: [1, 2, 3], a: [1, 2, 3], "3": [1, 2, 3] },
+          nonsemantic: { s: [1, 2, 3], m: [1, 2, 3], a: [1, 2, 3], "3": [1, 2, 3] }
+        },
+        "44k": {
+          semantic: { s: [1, 2, 3], m: [1, 2, 3], a: [1, 2, 3], "3": [1, 2, 3] },
+          nonsemantic: { s: [1, 2, 3], m: [1, 2, 3], a: [1, 2, 3], "3": [1, 2, 3] }
+        }
+      },
+      fsq: {
+        "16k": {
+          semantic: { s: [1, 2, 3], m: [1, 2, 3], a: [1, 2, 3], "3": [1, 2, 3] },
+          nonsemantic: { s: [1, 2, 3], m: [1, 2, 3], a: [1, 2, 3], "3": [1, 2, 3] }
+        },
+        "44k": {
+          semantic: { s: [1, 2, 3], m: [1, 2, 3], a: [1, 2, 3], "3": [1, 2, 3] },
+          nonsemantic: { s: [1, 2, 3], m: [1, 2, 3], a: [1, 2, 3], "3": [1, 2, 3] }
+        }
+      }
+    },
+    audio: {
+      rvq: {
+        "16k": {
+          semantic: { s: [1, 2, 3], m: [1, 2, 3], a: [1, 2, 3], "3": [1, 2, 3] },
+          nonsemantic: { s: [1, 2, 3], m: [1, 2, 3], a: [1, 2, 3], "3": [1, 2, 3] }
+        },
+        "44k": {
+          semantic: { s: [1, 2, 3], m: [1, 2, 3], a: [1, 2, 3], "3": [1, 2, 3] },
+          nonsemantic: { s: [1, 2, 3], m: [1, 2, 3], a: [1, 2, 3], "3": [1, 2, 3] }
+        }
+      },
+      svq: {
+        "16k": {
+          semantic: { s: [1, 2, 3], m: [1, 2, 3], a: [1, 2, 3], "3": [1, 2, 3] },
+          nonsemantic: { s: [1, 2, 3], m: [1, 2, 3], a: [1, 2, 3], "3": [1, 2, 3] }
+        },
+        "44k": {
+          semantic: { s: [1, 2, 3], m: [1, 2, 3], a: [1, 2, 3], "3": [1, 2, 3] },
+          nonsemantic: { s: [1, 2, 3], m: [1, 2, 3], a: [1, 2, 3], "3": [1, 2, 3] }
+        }
+      },
+      fsq: {
+        "16k": {
+          semantic: { s: [1, 2, 3], m: [1, 2, 3], a: [1, 2, 3], "3": [1, 2, 3] },
+          nonsemantic: { s: [1, 2, 3], m: [1, 2, 3], a: [1, 2, 3], "3": [1, 2, 3] }
+        },
+        "44k": {
+          semantic: { s: [1, 2, 3], m: [1, 2, 3], a: [1, 2, 3], "3": [1, 2, 3] },
+          nonsemantic: { s: [1, 2, 3], m: [1, 2, 3], a: [1, 2, 3], "3": [1, 2, 3] }
+        }
+      }
+    },
+    music: {
+      rvq: {
+        "16k": {
+          semantic: { s: [1, 2, 3], m: [1, 2, 3], a: [1, 2, 3], "3": [1, 2, 3] },
+          nonsemantic: { s: [1, 2, 3], m: [1, 2, 3], a: [1, 2, 3], "3": [1, 2, 3] }
+        },
+        "44k": {
+          semantic: { s: [1, 2, 3], m: [1, 2, 3], a: [1, 2, 3], "3": [1, 2, 3] },
+          nonsemantic: { s: [1, 2, 3], m: [1, 2, 3], a: [1, 2, 3], "3": [1, 2, 3] }
+        }
+      },
+      svq: {
+        "16k": {
+          semantic: { s: [1, 2, 3], m: [1, 2, 3], a: [1, 2, 3], "3": [1, 2, 3] },
+          nonsemantic: { s: [1, 2, 3], m: [1, 2, 3], a: [1, 2, 3], "3": [1, 2, 3] }
+        },
+        "44k": {
+          semantic: { s: [1, 2, 3], m: [1, 2, 3], a: [1, 2, 3], "3": [1, 2, 3] },
+          nonsemantic: { s: [1, 2, 3], m: [1, 2, 3], a: [1, 2, 3], "3": [1, 2, 3] }
+        }
+      },
+      fsq: {
+        "16k": {
+          semantic: { s: [1, 2, 3], m: [1, 2, 3], a: [1, 2, 3], "3": [1, 2, 3] },
+          nonsemantic: { s: [1, 2, 3], m: [1, 2, 3], a: [1, 2, 3], "3": [1, 2, 3] }
+        },
+        "44k": {
+          semantic: { s: [1, 2, 3], m: [1, 2, 3], a: [1, 2, 3], "3": [1, 2, 3] },
+          nonsemantic: { s: [1, 2, 3], m: [1, 2, 3], a: [1, 2, 3], "3": [1, 2, 3] }
+        }
+      }
+    }
   }
 };
 
@@ -65,6 +158,32 @@ const colorMap = {
   bg-green-200 text-green-900
 </div>;
 
+// Helper functions for ablation data
+function getAllAblationConfigs(subpart) {
+  const configs = [];
+  const subpartData = TOKENIZERS.abl[subpart];
+  
+  if (!subpartData) return configs;
+  
+  Object.keys(subpartData).forEach(quantization => {
+    Object.keys(subpartData[quantization]).forEach(sampleRate => {
+      Object.keys(subpartData[quantization][sampleRate]).forEach(semantic => {
+        Object.keys(subpartData[quantization][sampleRate][semantic]).forEach(modality => {
+          configs.push({
+            quantization,
+            sampleRate,
+            semantic,
+            modality,
+            displayName: `${quantization.toUpperCase()}-${sampleRate}-${semantic}-${modality}`
+          });
+        });
+      });
+    });
+  });
+  
+  return configs;
+}
+
 // Normalize group key to folder name
 function normalizeGroup(group) {
   if (group === "rec") return "reconstruction";
@@ -74,52 +193,108 @@ function normalizeGroup(group) {
 }
 
 // Build audio URL
-function audioUrl({ group, subpart, tokenizer, idx }) {
-  let tn = tokenizer.replace(/-/g, "").replace(/ /g, "").toLowerCase();
-  const folder = normalizeGroup(group);
+function audioUrl({ group, subpart, tokenizer, idx, ablConfig = null }) {
   const base = import.meta.env.BASE_URL; // For Vite, supports subfolder deployment
-  return `${base}samples/${folder}/${subpart}/${group}_${subpart}_${tn}_${idx}.wav`;
+  const folder = normalizeGroup(group);
+  
+  if (group === "abl" && ablConfig) {
+    // For ablation files: abl_{testset}_{quantization}_{samplerate}_{semantic}_{modality}_{order}.wav
+    const filename = `abl_${subpart}_${ablConfig.quantization}_${ablConfig.sampleRate}_${ablConfig.semantic}_${ablConfig.modality}_${idx}.wav`;
+    return `${base}samples/${folder}/${subpart}/${filename}`;
+  } else {
+    // For rec and lm files (original format)
+    let tn = tokenizer.replace(/-/g, "").replace(/ /g, "").toLowerCase();
+    return `${base}samples/${folder}/${subpart}/${group}_${subpart}_${tn}_${idx}.wav`;
+  }
 }
 
 function AudioSampleGrid({ group, subpart, tokenizers }) {
-  if (!tokenizers?.length)
-    return <div className="text-gray-500 p-4">No samples yet for this task.</div>;
-  return (
-    <div className="overflow-x-auto">
-      <table className="table-auto min-w-full text-sm border border-gray-200">
-        <thead>
-          <tr>
-            <th className="px-2 py-1 text-left whitespace-nowrap">Tokenizer</th>
-            {EXAMPLES.map(e => (
-              <th
-                key={e.idx}
-                className="px-2 py-1 text-center whitespace-nowrap"
-              >
-                {e.caption}
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {tokenizers.map(tokenizer => (
-            <tr key={tokenizer}>
-              <td className="font-semibold px-2 py-1 whitespace-nowrap">{tokenizer}</td>
+  if (group === "abl") {
+    // Handle ablation with nested structure
+    const ablConfigs = getAllAblationConfigs(subpart);
+    
+    if (!ablConfigs.length) {
+      return <div className="text-gray-500 p-4">No samples yet for this task.</div>;
+    }
+
+    return (
+      <div className="overflow-x-auto">
+        <table className="table-auto min-w-full text-sm border border-gray-200">
+          <thead>
+            <tr>
+              <th className="px-2 py-1 text-left whitespace-nowrap">Configuration</th>
               {EXAMPLES.map(e => (
-                <td key={e.idx} className="px-2 py-1 text-center align-middle">
-                  <audio
-                    controls
-                    preload="none"
-                    src={audioUrl({ group, subpart, tokenizer, idx: e.idx })}
-                    className="w-36 mx-auto rounded shadow"
-                  />
-                </td>
+                <th
+                  key={e.idx}
+                  className="px-2 py-1 text-center whitespace-nowrap"
+                >
+                  {e.caption}
+                </th>
               ))}
             </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
+          </thead>
+          <tbody>
+            {ablConfigs.map(config => (
+              <tr key={config.displayName}>
+                <td className="font-semibold px-2 py-1 whitespace-nowrap">{config.displayName}</td>
+                {EXAMPLES.map(e => (
+                  <td key={e.idx} className="px-2 py-1 text-center align-middle">
+                    <audio
+                      controls
+                      preload="none"
+                      src={audioUrl({ group, subpart, tokenizer: null, idx: e.idx, ablConfig: config })}
+                      className="w-36 mx-auto rounded shadow"
+                    />
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    );
+  } else {
+    // Handle rec and lm with simple tokenizer arrays
+    if (!tokenizers?.length)
+      return <div className="text-gray-500 p-4">No samples yet for this task.</div>;
+
+    return (
+      <div className="overflow-x-auto">
+        <table className="table-auto min-w-full text-sm border border-gray-200">
+          <thead>
+            <tr>
+              <th className="px-2 py-1 text-left whitespace-nowrap">Tokenizer</th>
+              {EXAMPLES.map(e => (
+                <th
+                  key={e.idx}
+                  className="px-2 py-1 text-center whitespace-nowrap"
+                >
+                  {e.caption}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {tokenizers.map(tokenizer => (
+              <tr key={tokenizer}>
+                <td className="font-semibold px-2 py-1 whitespace-nowrap">{tokenizer}</td>
+                {EXAMPLES.map(e => (
+                  <td key={e.idx} className="px-2 py-1 text-center align-middle">
+                    <audio
+                      controls
+                      preload="none"
+                      src={audioUrl({ group, subpart, tokenizer, idx: e.idx })}
+                      className="w-36 mx-auto rounded shadow"
+                    />
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    );
+  }
 }
 
 export default function AudioSamples() {
@@ -178,7 +353,7 @@ export default function AudioSamples() {
                         <AudioSampleGrid
                           group={acc.group}
                           subpart={sub.key}
-                          tokenizers={TOKENIZERS[acc.group]?.[sub.key] || []}
+                          tokenizers={acc.group === "abl" ? null : TOKENIZERS[acc.group]?.[sub.key] || []}
                         />
                       </div>
                     )}
