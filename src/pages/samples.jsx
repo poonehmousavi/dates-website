@@ -7,8 +7,8 @@ import { Link } from "react-router-dom";
 const TOKENIZERS = {
   rec: {
     speech: ["Enc-SMA-24-2", "Enc-SMA-24-8","Enc-SMA-24-32","DAC-SMA-24-2", "DAC-SMA-24-8","DAC-SMA-24-32", "ST-S-16-2","ST-S-16-8","Mimi-S-24-8", "Mimi-S-24-32", "DWavL-S-16-2", "DWavL-S-16-6", "SQ-SMA-16","WT-SMA-24","WT-S-24"],
-    audio: ["Enc-SMA-24", "DAC-SMA-24"],
-    music: ["Enc-SMA-24", "DAC-SMA-24"],
+    audio: ["Enc-SMA-24", "DAC-SMA-24", "SQ-SMA-16", "WT-SMA-24", "WT-S-24"],
+    music: ["Enc-SMA-24", "DAC-SMA-24", "SQ-SMA-16", "WT-SMA-24", "WT-S-24"],
   },
   lm: {
     speech: ["PROMPT","Enc-SMA-24", "DWavL-S-16"],
