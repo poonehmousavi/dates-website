@@ -13,7 +13,8 @@ const TOKENIZERS = {
   lm: {
     speech: ["PROMPT","Enc-SMA-24", "DWavL-S-16"],
     audio: ["Enc-A-16","DAC-SMA-44", "SQ-SMA-16", "WT-SMA-24"],
-    music: ["WT-SMA-24", "Mimi-S-24"],
+    // music: ["WT-SMA-24", "Mimi-S-24"],
+    music: ["Enc-M-32","DAC-SMA-44", "SQ-SMA-16", "WT-SMA-24"],
     tts: ["REFERENCE",  "Enc-SMA-24", "DAC-SMA-24", "ST-S-16", , "Mimi-SMA-24", "DWavL-S-16", "WT-SMA-24"]
   },
   abl: {
