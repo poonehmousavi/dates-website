@@ -11,7 +11,7 @@ const TOKENIZERS = {
     music: ["Enc-SMA-24", "DAC-SMA-24", "SQ-SMA-16", "WT-SMA-24", "WT-S-24"],
   },
   lm: {
-    speech: ["PROMPT","Enc-SMA-24", "DWavL-S-16"],
+    speech: ["PROMPT","HuBERT-25", "Enc-SMA-24", "DAC-SMA-16", "ST-S-16", "ST-S-16*", "Mimi-S-24", "Mimi-S-24*", "DWavL-S-16", "WT-SMA-24"],
     audio: ["Enc-A-16","DAC-SMA-44", "SQ-SMA-16", "WT-SMA-24"],
     // music: ["WT-SMA-24", "Mimi-S-24"],
     music: ["Enc-M-32","DAC-SMA-44", "SQ-SMA-16", "WT-SMA-24"],
